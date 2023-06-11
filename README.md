@@ -211,5 +211,21 @@ File: src/main/resources/application.properties
         }
     }
 ```
+### The Spring IoC Container
 
+* IoC container is a feature of frameworks that use IoC. 
+* The Spring container is responsible for instantiating, configuring and assembling objects known as *beans*, as well as managing their life cycles.
+* Primary functions of Spring Container-
+    - Create and manage objects *(Inversion of Control)*
+    - Inject object dependencies *(Dependency Injection)*
 
+#### Configuring Spring Container
+* XML configuration file (not recommended)
+* Java Annotations
+* Java Source Code
+
+### Injection Type
+* There are multiple types of injection with Spring.
+* The two recommended types of injection-
+    - Constructor Injection
+    - Setter Injection
