@@ -184,5 +184,32 @@ File: src/main/resources/application.properties
  # Login password of the database
  spring.datasource.password=tiger
 ```
+## Inversion of Control
+* A design principle that enables classes to be loosely coupled, making them simpler to test and manage. 
+* Outsources the construction and management of objects.
+* Transfers the control of objects or portions of a program to a container or framework. 
+### Dependency Injection (DI)
+* A pattern used to establish IoC where the control being inverted is setting an object's dependencies.
+* The client transfers the responsibility of providing its dependencies to another object.
+* For example in traditional programming an object dependency is created by the following way where we need to instantiate an implementation of the Item interface within the Store class itself,
+```bash
+    public class Store {
+        private Item item;
+ 
+        public Store() {
+            item = new ItemImpl1();    
+        }
+    }
+```
+* By using DI, the example can be rewritten without specifying the implementation of the Item that is desired.
+```bash
+    public class Store {
+        private Item item;
+	
+        public Store(Item item) {
+            this.item = item;
+        }
+    }
+```
 
 
