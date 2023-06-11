@@ -123,7 +123,7 @@ File: src/main/resources/application.properties
 	```
 	- Option 2: Use Spring Boot Maven plugin
 	```bash
-   	mvnw spring-boot:run
+    mvnw spring-boot:run
 	```
 ### Spring Boot - Custom Application Properties
 * Your app to be configurable ... (no hard-coding of values) 
