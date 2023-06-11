@@ -38,7 +38,7 @@ Spring boot is an open-source tool that makes the development of microservices a
 	- Artifact ID: Name for this project: myfirstapp
 	- Version: A specific release version like: 1.0, 1.6, 2.0 … If project is under active development then: 1.0-SNAPSHOT
 	- Example:
-```
+```bash
         	<groupId>org.springframework</groupId>
   		<artifactId>spring-context</artifactId>
   		<version>6.0.0</version>
@@ -57,7 +57,7 @@ Includes info entered while creating the project with spring initializr. We can 
 
 ### Spring boot maven plugin
 To package executable jar/war archive. Also to run the app easily.
-```
+```bash
 ./mvnw package
 ./mvnw spring-boot:run
 ```
@@ -86,7 +86,7 @@ To package executable jar/war archive. Also to run the app easily.
 * ..../actuator/health checks the status of your application (Normally used by monitoring apps to see if app is up or down)
 * By default, only /health is exposed
 * The /info endpoint can provide information about your application. To expose /info
-```
+```bash
 File: src/main/resources/application.properties
 ```
 	management.endpoints.web.exposure.include=health,info
@@ -103,14 +103,14 @@ management.endpoints.web.exposure.include=*
 * You may NOT want to expose all of this information
 * Spring Security will prompt for login (username: user (by default), password generated in console log)
 * You can override default user name and generated password
-```
+```bash
 File: src/main/resources/application.properties
 ```
 	spring.security.user.name=mila
 	spring.security.user.password=cat
 * You can customize Spring Security for Spring Boot Actuator. Use a database for roles, encrypted passwords etc ...
 * Excluding endpoints: e.g., To exclude /health,
-```
+```bash
 File: src/main/resources/application.properties
 ```
 	management.endpoints.web.exposure.exclude=health
@@ -118,11 +118,11 @@ File: src/main/resources/application.properties
 ## Running from the Command-Line
 * Two options for running the app
 	- Option 1: Use java -jar
-	```
+	```bash
 	java -jar myfirstapp.jar
 	```
 	- Option 2: Use Spring Boot Maven plugin
-	```
+	```bash
     mvnw spring-boot:run
 	```
 ### Spring Boot - Custom Application Properties
@@ -130,14 +130,14 @@ File: src/main/resources/application.properties
 * Read app configuration from a properties file
 * Define custom properties in application.properties 
 * Inject properties into Spring Boot application using @Value
-```
+```bash
 	# Define custom properties
 	coach.name=Mila
 	team.name=The Teaching Club
 ```
 
 * For example,
-```
+```bash
 	@RestController
 	public class FirstRestController {
 	// inject properties for: coach.name and team.name
@@ -158,7 +158,7 @@ File: src/main/resources/application.properties
  server.servlet.session.timeout=15m
 ```
 * Core properties example [TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF]:
-```
+```bash
  # Log levels severity mapping
  logging.level.org.springframework=DEBUG
  logging.level.org.hibernate=TRACE
@@ -167,7 +167,7 @@ File: src/main/resources/application.properties
  logging.file=my-crazy-stuff.log
 ```
 * Actuator Properties example:
-```
+```bash
  # Endpoints to include by name or wildcard
  management.endpoints.web.exposure.include=*
  # Endpoints to exclude by name or wildcard
@@ -176,7 +176,7 @@ File: src/main/resources/application.properties
  management.endpoints.web.base-path=/actuator
 ```
 * Data properties example:
-```
+```bash
  # JDBC URL of the database
  spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce
  # Login username of the database
@@ -192,7 +192,7 @@ File: src/main/resources/application.properties
 * A pattern used to establish IoC where the control being inverted is setting an object's dependencies.
 * The client transfers the responsibility of providing its dependencies to another object.
 * For example in traditional programming an object dependency is created by the following way where we need to instantiate an implementation of the Item interface within the Store class itself,
-```
+```bash
     public class Store {
         private Item item;
  
@@ -202,7 +202,7 @@ File: src/main/resources/application.properties
     }
 ```
 * By using DI, the example can be rewritten without specifying the implementation of the Item that is desired.
-```
+```bash
     public class Store {
         private Item item;
 	
