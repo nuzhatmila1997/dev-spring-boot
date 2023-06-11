@@ -39,7 +39,7 @@ Spring boot is an open-source tool that makes the development of microservices a
 	- Version: A specific release version like: 1.0, 1.6, 2.0 … If project is under active development then: 1.0-SNAPSHOT
 	- Example:
 ```
-        <groupId>org.springframework</groupId>
+        	<groupId>org.springframework</groupId>
   		<artifactId>spring-context</artifactId>
   		<version>6.0.0</version>
 ```
