@@ -229,3 +229,10 @@ File: src/main/resources/application.properties
 * The two recommended types of injection-
     - Constructor Injection
     - Setter Injection
+#### Which one to use?
+* Constructor Injection
+    - Used when there are required dependencies
+    - Generally preferred by the [spring.io](https://spring.io/) development team as first choice
+* Setter Injection
+    - Used when there are optional dependencies
+    - If dependency is not provided, app can provide reasonable default logic
