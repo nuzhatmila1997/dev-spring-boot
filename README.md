@@ -236,3 +236,47 @@ File: src/main/resources/application.properties
 * Setter Injection
     - Used when there are optional dependencies
     - If dependency is not provided, app can provide reasonable default logic
+      
+### AutoWiring
+* The spring framework's autowiring feature is used to inject the object dependency implicitly
+* It uses setter or constructor injection internally
+* Spring will look for a class that matches- *matches by type*: **class or interface**
+* Spring will inject it automatically- hence it is autowired
+* Autowiring can't be used to inject primitive and string values. It works with reference only
+
+#### Example
+* _Coach_ will provide daily workouts
+* _DemoController_ wants to use a _Coach_
+    - New helper: __*Coach*__
+    - This is a _dependency_
+* Need to inject this dependency
+
+#### Autowiring Comes to the picture
+- Injecting a _Coach_ implementation
+- Spring will scan for __*@Components*__
+- Any one implements the _Coach_ interface???
+- If so, let’s inject them. For example: __*CricketCoach*__
+```
+File (interface): Coach.java 
+```
+```bash
+package com.milacodesonmac.springcoredemo;
+public interface Coach {
+    String getDailyWorkout();
+}
+```
+```
+File (implementation): CricketCoach.java
+```
+```bash
+package com.milacodesonmac.springcoredemo;
+import org.springframework.stereotype.Component;
+@Component
+public class CricketCoach implements Coach {
+    @Override
+    public String getDailyWorkout() {
+        return "Practice fast bowling for 15 minutes";
+    }
+}
+```
+* _@Component_ annotation marks the class as a Spring _bean_
