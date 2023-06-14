@@ -256,6 +256,8 @@ File: src/main/resources/application.properties
 - Spring will scan for __*@Components*__
 - Any one implements the _Coach_ interface???
 - If so, let’s inject them. For example: __*CricketCoach*__
+#### Development Process (Constructor injection)
+1. Define thedependency- _interface_ and _implementation class_
 ```
 File (interface): Coach.java 
 ```
@@ -280,3 +282,51 @@ public class CricketCoach implements Coach {
 }
 ```
 * _@Component_ annotation marks the class as a Spring _bean_
+  	- A Spring Bean is just a regular Java class that is managed by Spring
+* _@Component_ also makes the bean available for dependency injection
+2. Create demo REST controller
+```bash
+package com.milacodesonmac.springcoredemo;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+public class DemoController {
+
+}
+```
+3. Create a constructor in the class for injections
+```bash
+package com.milacodesonmac.springcoredemo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+public class DemoController {
+    private Coach myCoach;
+@Autowired
+    public DemoController(Coach theCoach) {
+        myCoach = theCoach;
+    }
+}
+```
+* @Autowired annotation tells Spring to inject a dependency
+* If you there is one constructor then @Autowired on constructor is optional
+
+4. Add @GetMapping for /dailyworkout
+```bash
+package com.milacodesonmac.springcoredemo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+public class DemoController {
+    private Coach myCoach;
+    @Autowired
+    public DemoController(Coach theCoach) {
+        myCoach = theCoach;
+    }
+    @GetMapping("/dailyworkout")
+    public String getDailyWorkout() {
+        return myCoach.getDailyWorkout();
+    }
+} 
+```
+  
